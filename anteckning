@@ -7,3 +7,29 @@ anteckning 12 february
             vad betyder await => meddela mig när En sak är klar
             när man skriver await så blir programmet långsammare
             Eventbaserad programmering
+
+
+    user and login =>
+        registerera
+            -username
+            -password
+            app.post(...) userAccount.create{}
+
+            ta password
+            skapa hash
+            lagra hash
+
+        login
+            -username
+            -password
+            app.post(...) kollar i databas
+                            mata in password
+                            sätter cookies
+                            lagras i session
+
+        hashning
+            text => HASH algoritm => rappakalja 
+
+        cryptering: två sätt
+            text => krypera => blabla sättet att kryptera är rävarspårk
+            blabla => kryptera => text
