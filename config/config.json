@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Shopy2024?",
+    "password": "Shopy2024?!",
     "database": "players",
     "host": "127.0.0.1",
     "dialect": "mysql"
