@@ -1,5 +1,5 @@
 const { Players } = require("../models");
-
+const { Op } = require("sequelize");
 const editPlayerById = async (req, res) => {
   const player = await Players.findOne({
     where: { id: req.params.id },
@@ -18,8 +18,34 @@ const editPlayerById = async (req, res) => {
 };
 
 const getAllPlayers = async (req, res) => {
-  const playersList = await Players.findAll();
-  res.json(playersList);
+  let sortCol = req.query.sortCol || "name";
+  let sortOrder = req.query.sortOrder || "asc";
+  let limit = Number(req.query.limit || 20);
+  let offset = Number(req.query.offset || 0);
+  let q = req.query.q || "";
+  console.log("!!", sortCol, sortOrder, q, limit, offset);
+  const playersList = await Players.findAll({
+    where: {
+      [Op.or]: [
+        { name: { [Op.like]: "%" + q + "%" } },
+        { team: { [Op.like]: "%" + q + "%" } },
+        { position: { [Op.like]: "%" + q + "%" } },
+      ],
+    },
+    order: [[sortCol, sortOrder]],
+    limit,
+    offset,
+  });
+  const result = playersList.map((player) => {
+    return {
+      id: player.id,
+      name: player.name,
+      jersey: player.jersey,
+      position: player.position,
+      team: player.team,
+    };
+  });
+  res.json(result);
 };
 
 const createPlayer = async (req, res) => {

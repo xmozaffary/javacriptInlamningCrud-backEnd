@@ -1,0 +1,22 @@
+### Get by name
+
+GET http://localhost:3000/players?sortCol=name&sortOrder=asc&limit=5&offset=0
+
+
+### Get by jersey
+GET http://localhost:3000/players?sortCol=jersey&sortOrder=asc&limit=5&offset=0
+
+
+### Get by position
+GET http://localhost:3000/players?sortCol=position&sortOrder=asc&limit=5&offset=0
+
+
+### Get by team
+GET http://localhost:3000/players?sortCol=team&sortOrder=asc&limit=5&offset=0&q=a
+
+
+### Get by team and search
+GET http://localhost:3000/players?sortCol=name&sortOrder=asc&limit=100&offset=0
+
+### get players
+http://localhost:3000/players
