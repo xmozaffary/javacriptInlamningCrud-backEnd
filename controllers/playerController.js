@@ -53,6 +53,7 @@ const createPlayer = async (req, res) => {
   await Players.create({
     name: req.body.name,
     jersey: req.body.jersey,
+    position: req.body.position,
     team: req.body.team,
   });
   const playersList = await Players.findAll();
@@ -60,6 +61,7 @@ const createPlayer = async (req, res) => {
 };
 
 const deletePlayer = async (req, res) => {
+  console.log(req.params.id);
   const player = await Players.findOne({
     where: { id: req.params.id },
   });

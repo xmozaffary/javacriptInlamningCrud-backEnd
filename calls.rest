@@ -18,5 +18,28 @@ GET http://localhost:3000/players?sortCol=team&sortOrder=asc&limit=5&offset=0&q=
 ### Get by team and search
 GET http://localhost:3000/players?sortCol=name&sortOrder=asc&limit=100&offset=0
 
-### get players
-http://localhost:3000/players
+### POST a player
+POST http://localhost:3000/addPlayers
+Content-Type: application/json; charset=utf-8
+
+{
+      "name": "aliss",
+      "jersey": 200,
+      "position": "Goalie",
+      "team": "Edmonton Oilers"
+}
+
+### check validator
+POST http://localhost:3000/addPlayers
+Content-Type: application/json; charset=utf-8
+
+{
+      "name": "alii",
+      "jersey": 12 ,
+      "position": "Goalie",
+      "team": "torento"
+}
+
+
+### delete a player
+DELETE http://localhost:3000/deletePlayer/55

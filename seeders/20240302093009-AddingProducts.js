@@ -5,7 +5,7 @@ const { Players } = require("../models");
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    for (let i = 0; i < 120; i++) {
+    for (let i = 0; i < 50; i++) {
       const name = faker.name.findName();
       const jersey = faker.random.number({ min: 1, max: 100 });
       const position = faker.random.arrayElement([
