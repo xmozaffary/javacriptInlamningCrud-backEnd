@@ -24,7 +24,6 @@ const getAllPlayers = async (req, res) => {
   let limit = Number(req.query.limit || 20);
   let offset = Number(req.query.offset || 0);
   let q = req.query.q || "";
-  console.log("!!", sortCol, sortOrder, q, limit, offset);
   const playersList = await Players.findAndCountAll({
     where: {
       [Op.or]: [
@@ -61,7 +60,6 @@ const createPlayer = async (req, res) => {
 };
 
 const deletePlayer = async (req, res) => {
-  console.log(req.params.id);
   const player = await Players.findOne({
     where: { id: req.params.id },
   });
